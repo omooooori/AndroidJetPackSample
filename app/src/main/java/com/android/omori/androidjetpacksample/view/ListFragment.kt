@@ -12,9 +12,6 @@ import com.android.omori.androidjetpacksample.R
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_list.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class ListFragment : Fragment() {
 
     override fun onCreateView(
@@ -27,13 +24,6 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        buttonDetail.setOnClickListener {
-            val action = ListFragmentDirections.actionDetailFragment()
-            action.dogUuid = 5
-            Navigation.findNavController(it).navigate(action)
-//            view?.findNavController()?.navigate(R.id.actionDetailFragment)
-        }
     }
 
 }
