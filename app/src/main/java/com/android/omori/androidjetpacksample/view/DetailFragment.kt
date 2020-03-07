@@ -10,9 +10,6 @@ import androidx.navigation.Navigation
 import com.android.omori.androidjetpacksample.R
 import kotlinx.android.synthetic.main.fragment_detail.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class DetailFragment : Fragment() {
 
     private var dogUuid = 0
@@ -30,13 +27,8 @@ class DetailFragment : Fragment() {
 
         arguments?.let {
             dogUuid = DetailFragmentArgs.fromBundle(it).dogUuid
-            text_view_dog.text = dogUuid.toString()
         }
 
-        buttonList.setOnClickListener {
-            val action = DetailFragmentDirections.actionListFragment()
-            Navigation.findNavController(it).navigate(action)
-        }
     }
 
 }
