@@ -33,8 +33,6 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
         holder.view.text_view_dog_life_span.text = dogList[position].lifeSpan
     }
 
-    class DogViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
-
-    }
+    class DogViewHolder(var view: View) : RecyclerView.ViewHolder(view)
 
 }
