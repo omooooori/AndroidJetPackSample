@@ -3,6 +3,7 @@ package com.android.omori.androidjetpacksample.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.android.omori.androidjetpacksample.R
 import com.android.omori.androidjetpacksample.model.DogBreed
@@ -31,6 +32,9 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
         holder.view.text_view_dog_name.text = dogList[position].dogBreed
         holder.view.text_view_dog_life_span.text = dogList[position].lifeSpan
+        holder.view.setOnClickListener {
+            Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
+        }
     }
 
     class DogViewHolder(var view: View) : RecyclerView.ViewHolder(view)
