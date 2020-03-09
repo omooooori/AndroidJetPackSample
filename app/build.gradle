@@ -28,6 +28,8 @@ android {
 
 def supportVersion = '28.0.0'
 def navVersion = '2.3.0-alpha03'
+def retrofitVersion = '2.3.0'
+def rxJavaVersion = '2.1.1'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -49,6 +51,15 @@ dependencies {
 
     // ViewModelProviders
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
