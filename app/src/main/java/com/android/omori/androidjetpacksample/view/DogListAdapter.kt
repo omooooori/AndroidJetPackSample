@@ -7,6 +7,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.android.omori.androidjetpacksample.R
 import com.android.omori.androidjetpacksample.model.DogBreed
+import com.android.omori.androidjetpacksample.util.getProgressDrawable
+import com.android.omori.androidjetpacksample.util.loadImage
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 import kotlinx.android.synthetic.main.item_dog.view.*
@@ -35,6 +37,10 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
         holder.view.setOnClickListener {
             Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
         }
+        holder.view.image_view_dog.loadImage(
+            dogList[position].imageUrl,
+            getProgressDrawable(holder.view.image_view_dog.context)
+        )
     }
 
     class DogViewHolder(var view: View) : RecyclerView.ViewHolder(view)
