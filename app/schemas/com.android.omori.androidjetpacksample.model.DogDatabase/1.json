@@ -1,0 +1,76 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8bfa661d0d299ab66bcdf4fb2bdfee64",
+    "entities": [
+      {
+        "tableName": "DogBreed",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `breed_id` TEXT, `dog_name` TEXT, `life-span` TEXT, `breed_group` TEXT, `bred_for` TEXT, `temperament` TEXT, `dpg_url` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breedId",
+            "columnName": "breed_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dogBreed",
+            "columnName": "dog_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lifeSpan",
+            "columnName": "life-span",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "breedGroup",
+            "columnName": "breed_group",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bredFor",
+            "columnName": "bred_for",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "temperament",
+            "columnName": "temperament",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "dpg_url",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "uuid"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8bfa661d0d299ab66bcdf4fb2bdfee64')"
+    ]
+  }
+}
