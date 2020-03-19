@@ -35,7 +35,9 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
         holder.view.text_view_dog_name.text = dogList[position].dogBreed
         holder.view.text_view_dog_life_span.text = dogList[position].lifeSpan
         holder.view.setOnClickListener {
-            Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
+            val action = ListFragmentDirections.actionDetailFragment()
+            action.dogUuid = dogList[position].uuid
+            Navigation.findNavController(it).navigate(action)
         }
         holder.view.image_view_dog.loadImage(
             dogList[position].imageUrl,
