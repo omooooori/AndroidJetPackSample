@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 import kotlinx.android.synthetic.main.item_dog.view.*
 
-class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<DogListAdapter.DogViewHolder>() {
+class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<DogListAdapter.DogViewHolder>(), DogClickListener {
 
     fun updateDogList(newDogList: List<DogBreed>) {
         dogList.clear()
@@ -36,6 +36,7 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
         holder.view.dog = dogList[position]
+        holder.view.listener = this
 //        holder.view.text_view_dog_name.text = dogList[position].dogBreed
 //        holder.view.text_view_dog_life_span.text = dogList[position].lifeSpan
 //        holder.view.setOnClickListener {
@@ -47,6 +48,14 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
 //            dogList[position].imageUrl,
 //            getProgressDrawable(holder.view.image_view_dog.context)
 //        )
+    }
+
+    override fun onDogClicked(v: View) {
+        val uuid = v.dogId.text.toString().toInt()
+        val action = ListFragmentDirections.actionDetailFragment()
+//        action.dogUuid = dogList[position].uuid
+        action.dogUuid = uuid
+        Navigation.findNavController(v).navigate(action)
     }
 
     class DogViewHolder(var view: ItemDogBinding) : RecyclerView.ViewHolder(view.root)
