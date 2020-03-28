@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="dog"
+            type="com.android.omori.androidjetpacksample.model.DogBreed" />
+    </data>
+
     <LinearLayout android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="125dp">
@@ -26,14 +33,14 @@
                 android:id="@+id/text_view_dog_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Dog name"
+                tools:text="@{dog.dogBreed}"
                 style="@style/Title"/>
 
             <TextView
                 android:id="@+id/text_view_dog_life_span"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Life Span"
+                tools:text="@{dog.lifeSpan}"
                 style="@style/Text"/>
             
         </LinearLayout>
