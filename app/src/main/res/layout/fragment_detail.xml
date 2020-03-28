@@ -3,6 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="dog"
+            type="com.android.omori.androidjetpacksample.model.DogBreed" />
+        <variable
+            name="listener"
+            type="com.android.omori.androidjetpacksample.view.DogClickListener" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,9 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            app:srcCompat="@mipmap/ic_dog_icon"
             android:scaleType="fitCenter"
-            android:minHeight="200dp"/>
+            android:minHeight="200dp"
+            android:imageUrl="@{dog.imageUrl}"/>
 
         <TextView
             android:id="@+id/text_view_dog_name_detail"
@@ -23,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_view_dog_detail"
             tools:text="Dog name"
+            android:text="@{dog.dogBreed}"
             style="@style/Text"
             android:layout_centerHorizontal="true"
             android:layout_margin="8dp" />
@@ -33,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_dog_name_detail"
             tools:text="Dog purpose"
+            android:text="@{dog.bredFor}"
             style="@style/Text"
             android:layout_centerHorizontal="true"
             android:layout_margin="8dp" />
@@ -43,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_dog_purpose_detail"
             tools:text="Dog temperament"
+            android:text="@{dog.temperament}"
             style="@style/Text"
             android:layout_centerHorizontal="true"
             android:layout_margin="8dp" />
@@ -52,7 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_dog_temperament_detail"
-            tools:text="Dog purpose"
+            tools:text="Dog lifespan"
+            android:text="@{dog.lifeSpan}"
             style="@style/Text"
             android:layout_centerHorizontal="true"
             android:layout_margin="8dp" />

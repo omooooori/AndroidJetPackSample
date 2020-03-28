@@ -25,7 +25,7 @@ class ListViewModel(application : Application) : BaseViewModel(application) {
     private val dogsService = DogsApiService()
     private val disposable = CompositeDisposable()
 
-    val dogs = MutableLiveData<List<DogBreed>>()
+    val dogLiveData = MutableLiveData<List<DogBreed>>()
     val dogsLoadError = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
 
@@ -111,7 +111,7 @@ class ListViewModel(application : Application) : BaseViewModel(application) {
     }
 
     private fun dogsRetrieved(dogList : List<DogBreed>) {
-        dogs.value = dogList
+        dogLiveData.value = dogList
         dogsLoadError.value = false
         loading.value = false
     }
