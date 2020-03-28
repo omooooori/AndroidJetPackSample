@@ -52,10 +52,10 @@ class ListFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.dogs.observe(this, Observer { dogs ->
-            dogs?.let {
+        viewModel.dogLiveData.observe(this, Observer { dogLiveData ->
+            dogLiveData?.let {
                 list_dog.visibility = View.VISIBLE
-                dogsListAdapter.updateDogList(dogs)
+                dogsListAdapter.updateDogList(dogLiveData)
             }
         })
 
