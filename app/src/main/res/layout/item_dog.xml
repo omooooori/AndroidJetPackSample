@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:padding="8dp"
-            tools:srcCompat="@mipmap/ic_dog_icon"/>
+            android:imageUrl="@{dog.imageUrl}"/>
 
         <LinearLayout
             android:layout_width="0dp"
