@@ -10,11 +10,15 @@
         <variable
             name="listener"
             type="com.android.omori.androidjetpacksample.view.DogClickListener" />
+        <variable
+            name="palette"
+            type="com.android.omori.androidjetpacksample.model.DogPalette" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@{palette.color}"
         tools:context=".view.DetailFragment">
 
         <ImageView
