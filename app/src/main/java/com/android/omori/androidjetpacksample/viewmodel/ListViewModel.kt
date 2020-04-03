@@ -1,6 +1,7 @@
 package com.android.omori.androidjetpacksample.viewmodel
 
 import android.app.Application
+import android.app.NotificationManager
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +9,7 @@ import com.android.omori.androidjetpacksample.model.DogBreed
 import com.android.omori.androidjetpacksample.model.DogDao
 import com.android.omori.androidjetpacksample.model.DogDatabase
 import com.android.omori.androidjetpacksample.model.DogsApiService
+import com.android.omori.androidjetpacksample.util.NotificationsHelper
 import com.android.omori.androidjetpacksample.util.SharedPreferencesHelper
 import com.android.omori.androidjetpacksample.view.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -89,6 +91,7 @@ class ListViewModel(application : Application) : BaseViewModel(application) {
                     override fun onSuccess(dogList: List<DogBreed>) {
                         storeDogsLocally(dogList)
                         Toast.makeText(getApplication(), "Dogs retrieved from endpoint", Toast.LENGTH_LONG).show()
+                        NotificationsHelper(getApplication()).createNotification()
                     }
 
                     override fun onError(e: Throwable) {

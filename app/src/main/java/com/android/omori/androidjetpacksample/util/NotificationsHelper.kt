@@ -23,7 +23,7 @@ class NotificationsHelper(val context : Context) {
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-        val pendingIntent = PendingIntent.getActivities(context, 0, intent, 0)
+        val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
 
         val icon = BitmapFactory.decodeResource(context.resources, R.drawable.dog)
 
